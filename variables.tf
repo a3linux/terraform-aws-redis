@@ -61,7 +61,7 @@ variable "port_service_mappings" {
 variable "allowed_sources" {
   type        = list(any)
   description = "Allowed source IPs"
-  default     = {}
+  default     = []
 }
 variable "allowed_ips" {
   description = "List of allowed ip, additional IP list to sources list"
