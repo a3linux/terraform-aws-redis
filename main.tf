@@ -36,7 +36,7 @@ module "security_group" {
 
   vpc_id                = local.vpc_id
   name                  = local.name
-  context_values        = var.context
+  context               = var.context
   allowed_sources       = var.allowed_sources
   allowed_ips           = var.allowed_ips
   allowed_services      = [var.port_service]
