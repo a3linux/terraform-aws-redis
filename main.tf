@@ -4,7 +4,7 @@ locals {
 
   vpc_id                        = var.vpc_id == null ? module.vpc[0].vpc_id : var.vpc_id
   subnet_ids                    = length(var.subnet_ids) == 0 ? module.subnets[0].subnet_ids : var.subnet_ids
-  availability_zones = length(var.availability_zones) > 0 ? var.availability_zones : module.subnets.subnet_azs
+  availability_zones = length(var.availability_zones) > 0 ? var.availability_zones : module.subnets[0].subnet_azs
   elasticache_subnet_group_name = var.elasticache_subnet_group_name != "" ? var.elasticache_subnet_group_name : join("", aws_elasticache_subnet_group.default[0].name)
 
   # if !cluster, then node_count = replica cluster_size, if cluster then node_count = shard*(replica + 1)
