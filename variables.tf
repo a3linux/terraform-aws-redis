@@ -81,7 +81,7 @@ variable "cluster_size" {
 variable "transit_encryption_enabled" {
   type        = bool
   description = "Enable transit encryption"
-  default     = true
+  default     = false
 }
 variable "auth_token_param_name" {
   type        = string
