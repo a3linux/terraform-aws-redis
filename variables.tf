@@ -122,11 +122,6 @@ variable "maintenance_window" {
   description = "Maintenance window"
   default     = ""
 }
-variable "apply_immediately" {
-  type        = bool
-  default     = true
-  description = "Apply changes immediately"
-}
 variable "snapshot_arns" {
   type        = list(string)
   description = "A single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. Example: arn:aws:s3:::my_bucket/snapshot1.rdb"
