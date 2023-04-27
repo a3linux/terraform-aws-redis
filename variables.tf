@@ -58,6 +58,16 @@ variable "port_service_mappings" {
   description = "A map of list to define the port service mappings. Only when the default port is NOT 6379. e.g. {myredis = [6380, 6380, \"tcp\", \"MyRedisPort\"]}, then the port_service should be myredis and the port should be 6380 to apply the security group correctly"
   default     = {}
 }
+variable "allowed_sources" {
+  type        = list(any)
+  description = "Allowed source IPs"
+  default     = {}
+}
+variable "allowed_ips" {
+  description = "List of allowed ip, additional IP list to sources list"
+  type        = list(string)
+  default     = []
+}
 variable "cluster_mode_enabled" {
   type        = bool
   description = "Flag to enable/disable creation of a native redis cluster. `automatic_failover_enabled` must be set to `true`. Only 1 `cluster_mode` block is allowed"

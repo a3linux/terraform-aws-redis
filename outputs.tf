@@ -1,5 +1,5 @@
 output "redis_endpoint" {
-  value         = redis_endpoint
+  value         = local.redis_endpoint
   description   = "The redis replication group name(id)"
 }
 

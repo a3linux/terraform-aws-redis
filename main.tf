@@ -47,7 +47,7 @@ resource "aws_elasticache_subnet_group" "default" {
   count = var.elasticache_subnet_group_name == "" ? 1 : 0
 
   name       = local.name
-  subnet_ids = module.subnets.subnet_ids
+  subnet_ids = local.subnet_ids
 }
 
 resource "aws_elasticache_parameter_group" "default" {
@@ -109,7 +109,7 @@ resource "aws_elasticache_replication_group" "default" {
 }
 
 data "aws_route53_zone" "selected" {
-  count = local.create_dns_cname
+  count = local.create_dns_cname ? 1 : 0
 
   zone_id = var.zone_id
   name    = var.zone_name
