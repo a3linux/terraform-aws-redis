@@ -13,7 +13,7 @@ locals {
   elasticache_member_clusters = length(local.name) > 0 ? tolist(aws_elasticache_replication_group.default[0].member_clusters) : []
 
   redis_endpoint  = var.cluster_mode_enabled ? aws_elasticache_replication_group.default.*.configuration_endpoint_address : aws_elasticache_replication_group.default.*.primary_endpoint_address
-  redis_fqdn      = var.create_dns_cname ? aws_route53_record.dns_cname.fqdn : ""
+  redis_fqdn      = var.create_dns_cname ? aws_route53_record.dns_cname[0].fqdn : ""
 }
 
 module "vpc" {
