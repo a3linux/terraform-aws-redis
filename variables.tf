@@ -167,6 +167,11 @@ variable "cluster_mode_num_node_groups" {
   description = "Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications"
   default     = 0
 }
+variable "at_rest_encryption_enabled" {
+  type        = bool
+  description = "Encryption at_rest(store) data"
+  default     = false
+}
 variable "kms_key_id" {
   type        = string
   description = "The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. `at_rest_encryption_enabled` must be set to `true`"

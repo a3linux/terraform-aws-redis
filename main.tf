@@ -109,7 +109,7 @@ resource "aws_elasticache_replication_group" "default" {
 }
 
 data "aws_route53_zone" "selected" {
-  count = local.create_dns_cname ? 1 : 0
+  count = var.create_dns_cname ? 1 : 0
 
   zone_id = var.zone_id
   name    = var.zone_name
